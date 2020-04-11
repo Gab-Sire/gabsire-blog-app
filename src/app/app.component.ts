@@ -9,12 +9,17 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  links$: Observable<ScullyRoute[]>;
   posts$: Observable<ScullyRoute[]>;
   articles$: Observable<ScullyRoute[]>;
+  aboutLink: Observable<ScullyRoute[]>;
 
   constructor(private srs: ScullyRoutesService) {}
 
   ngOnInit() {
+    this.links$ = this.srs.available$;
+    console.log(this.links$);
+
     this.posts$ = this.srs.available$.pipe(
       map(routes => {
       return routes.filter((route: ScullyRoute) =>
