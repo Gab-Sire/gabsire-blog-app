@@ -1,9 +1,32 @@
-<ul>
-  <li *ngFor="let post of posts$ | async">
-    <a [routerLink]="post.route">{{ post.title }}</a>
-  </li>
-</ul>
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Menu</a>
 
-<hr />
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Posts
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" *ngFor="let post of posts$ | async">
+          <a class="dropdown-item" [routerLink]="post.route">{{ post.title }}</a>
+        </div>
+      </li>
+      <li>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Articles
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" *ngFor="let article of articles$ | async">
+          <a class="dropdown-item" [routerLink]="article.route">{{ article.title }}</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>

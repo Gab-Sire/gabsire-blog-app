@@ -1,7 +1,7 @@
 ---
-title: 2020-04-10-blog
+title: 2020-04-10-articles
 description: blog description
 publish: false
 ---
 
-# 2020-04-10-blog
+# example-article
