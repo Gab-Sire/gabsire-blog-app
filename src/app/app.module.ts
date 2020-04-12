@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { HomeModule } from './home/home.module';
 import { AboutComponent } from './about/about.component';
+import { HighlightService } from './highlight.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { AboutComponent } from './about/about.component';
     AppRoutingModule,
     ScullyLibModule,
   ],
-  providers: [],
+  providers: [
+    HighlightService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
