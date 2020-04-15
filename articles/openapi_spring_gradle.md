@@ -1,5 +1,5 @@
 ---
-title: openapi-spring-gradle
+title: OpenApi, Spring and Gradle
 description: blog description
 publish: false
 ---
@@ -7,15 +7,15 @@ publish: false
 # How To: OpenAPI with Spring and Gradle
 
 <div class="summary">
-	<a href="articles/openapi_spring_gradle#introduction">Introduction</a><br>
-	<a href="articles/openapi_spring_gradle#useful_information">Useful information before starting</a><br>
-	<a href="articles/openapi_spring_gradle#openapi_cli_tool">Using the OpenApi Generator CLI tool</a><br>
-	<a href="articles/openapi_spring_gradle#open_api_tool_setup" class="tab">Setup</a><br>
-	<a href="articles/openapi_spring_gradle#open_api_tool_usage" class="tab">Usage</a><br>
-	<a href="articles/openapi_spring_gradle#open_gradle_plugin">Using the OpenApi Generator Gradle Plugin</a><br>
-	<a href="articles/openapi_spring_gradle#open_gradle_plugin_setup" class="tab">Setup</a><br>
-	<a href="articles/openapi_spring_gradle#open_gradle_plugin_usage" class="tab">Usage</a><br>
-	<a href="articles/openapi_spring_gradle#conclusion">Conclusion</a>
+	<a href="articles/openapi_spring_gradle#introduction" class="header">Introduction</a>
+	<a href="articles/openapi_spring_gradle#useful_information" class="header">Useful information before starting</a>
+	<a href="articles/openapi_spring_gradle#openapi_cli_tool" class="header">Using the OpenApi Generator CLI tool</a>
+	<a href="articles/openapi_spring_gradle#open_api_tool_setup" class="tab">Setup
+	<a href="articles/openapi_spring_gradle#open_api_tool_usage" class="tab">Usage</a>
+	<a href="articles/openapi_spring_gradle#open_gradle_plugin" class="header">Using the OpenApi Generator Gradle Plugin</a>
+	<a href="articles/openapi_spring_gradle#open_gradle_plugin_setup" class="tab">Setup</a>
+	<a href="articles/openapi_spring_gradle#open_gradle_plugin_usage" class="tab">Usage</a>
+	<a href="articles/openapi_spring_gradle#conclusion" class="header">Conclusion</a>
 </div>
 
 ## <a id="introduction"></a>Introduction

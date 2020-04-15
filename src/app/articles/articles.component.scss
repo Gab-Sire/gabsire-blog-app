@@ -1,7 +1,4 @@
-.col-9 img {
-    max-width: 100%;
-    height: auto;
-}
+// titles
 
 p, h1, h2, h3 {
     margin-top: 20px;
@@ -12,10 +9,7 @@ h1{
     margin-bottom: 30px;
 }
 
-.tab { 
-    display:inline-block; 
-    margin-left: 10px; 
-}
+// summary content
 
 .summary {
     padding: 10px;
@@ -25,5 +19,28 @@ h1{
 }
 
 .summary a {
-    padding-bottom: 10px;
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.summay .header + .header, .summary .tab + .header {
+    margin-bottom: 15px;
+}
+
+.tab {
+    padding-left: 15px;
+}
+
+// images
+
+.col-9 img {
+    max-width: 100%;
+    height: auto;
+}
+
+// footer 
+
+footer {
+    margin-bottom: 70px;
 }
