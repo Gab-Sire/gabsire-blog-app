@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   links$: Observable<ScullyRoute[]>;
   posts$: Observable<ScullyRoute[]>;
   articles$: Observable<ScullyRoute[]>;
-  aboutLink: Observable<ScullyRoute[]>;
 
   constructor(private srs: ScullyRoutesService) {}
 

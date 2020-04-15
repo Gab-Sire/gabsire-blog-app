@@ -11,3 +11,19 @@ p, h1, h2, h3 {
 h1{
     margin-bottom: 30px;
 }
+
+.tab { 
+    display:inline-block; 
+    margin-left: 10px; 
+}
+
+.summary {
+    padding: 10px;
+    border: solid black 1px;
+    width: 40%;
+    min-width: 400px;
+}
+
+.summary a {
+    padding-bottom: 10px;
+}

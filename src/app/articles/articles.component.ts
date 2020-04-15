@@ -13,18 +13,26 @@ declare var ng: any;
 
 })
 export class ArticlesComponent implements OnInit {
-  ngOnInit() {}
 
   private highlighted: boolean = false;
+  private fragment: string;
 
   constructor(private router: Router, private route: ActivatedRoute, 
     private highlightService: HighlightService) {
   }
 
+  ngOnInit() {
+    this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
+  }
+
   ngAfterViewChecked() {
+    
     if (!this.highlighted) {
       this.highlightService.highlightAll();
       this.highlighted = true;
     }
+    try {
+      document.querySelector('#' + this.fragment).scrollIntoView();
+    } catch (e) { }
   }
 }
