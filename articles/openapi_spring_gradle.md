@@ -49,17 +49,17 @@ There’s a variety of ways to install the OpenApi Cli tool, which can be found 
 
 Because I use Windows, I find it easiest to install it with npm, like so:
 
-<pre class="language-bash"><code class="language-bash">
+```bash
 npm install @openapitools/openapi-generator-cli -g
-</code></pre>
+```
 
 ### <a id="open_api_tool_usage"></a>Usage
 
 I then use the following command to generate the classes: 
 
-<pre class="language-bash"><code class="language-bash">
+```bash
 openapi-generator generate -g spring -i C:\develop\openapi_definitions\net-gabsire087-demo-book-api-1.0.0.yml -o out
-</code></pre>
+```
 
 where **g** is the generator name, **i** is the input definition file, and **o** is the output directory.
 
@@ -88,18 +88,18 @@ Let's place the definition somewhere visible within the application:
 
 First, make sure to insert the plugin in your build.gradle.
 
-<pre class="language-groovy"><code class="language-groovy">
+```groovy
 plugins {
 	// omissions
 	id "org.openapi.generator" version "4.3.0"
 }
-</code></pre>
+```
 
 ### <a id="open_gradle_plugin_usage"></a>Usage
 
 By applying the plugin (no other instruction necessary), the task openApiGenerate should be available for you to write and customize:
 
-<pre class="language-groovy"><code class="language-groovy">
+```groovy
 // out-of-the-box task with openapi-genrator plugin
 openApiGenerate{
 	generatorName = "spring"
@@ -108,28 +108,28 @@ openApiGenerate{
 	apiPackage = "net.gabsire087.springgradleopenapidemo.api.v1"
 	modelPackage = "net.gabsire087.springgradleopenapidemo.api.v1.model"
 }
-</code></pre>
+```
 
 If you wish to generate classes from multiple definitions, you can then add a new task by specifying the type of task from the OpenApi Gradle plugin: 
 
-<pre class="language-groovy"><code class="language-groovy">
+```groovy
 //second openApiGenerate task
 task generateWhatever(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask){
     //parameters here
 } 
-</code></pre>
+```
 
 You can then specify in the build.gradle that upon compiling, we need to generate the OpenApi classes: 
 
-<pre class="language-groovy"><code class="language-groovy">
+```groovy
 compileJava.dependsOn tasks.openApiGenerate
-</code></pre>
+```
 
 As you can gather from the outputDir paramater, I recommend to cleanly separate your generated classes from the rest of the app’s code by using the folder build (generating classes in a specified directory tend to overwrite the current directory’s content, you have been warned). 
 
 However, because we want our application to treat the build/generated/src/main/java as a main source, we have to specify it in the Gradle sourceSets: 
 
-<pre class="language-groovy"><code class="language-groovy">
+```groovy
 // consider generated classes as source
 sourceSets {
 	main {
@@ -139,7 +139,7 @@ sourceSets {
 		}
 	}
 }
-</code></pre>
+```
 
 I then move the controller in my non-generated source path, for we don’t want the app to re-write our implementations each time the project builds:
 
@@ -147,12 +147,12 @@ I then move the controller in my non-generated source path, for we don’t want 
 
 Finally, it’s worth noting that if you go the Spring route, other dependencies may be needed, in my case I had to append Swagger annotations, Swagger SpringFox, and jackson-databind-nullable:
 
-<pre class="language-groovy"><code class="language-groovy">
+```groovy
 // depencencies for OpenAPI generated Spring code
 	implementation 'io.swagger:swagger-annotations:1.6.0'
 	implementation 'io.springfox:springfox-swagger2:2.9.2'
 	implementation 'org.openapitools:jackson-databind-nullable:0.2.0'
-</code></pre>
+```
 
 And voilà! Now, each time I do a gradle clean build I should be able to see that the OpenApi Generator has successfully generated the classes I needed for this demo app to work.
 

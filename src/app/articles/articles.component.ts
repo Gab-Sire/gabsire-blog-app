@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, AfterViewChecked} from '@angular/core';
 import {ActivatedRoute, Router, ROUTES} from '@angular/router';
 import { HighlightService } from '../highlight.service';
 
@@ -12,27 +12,16 @@ declare var ng: any;
   encapsulation: ViewEncapsulation.Emulated
 
 })
-export class ArticlesComponent implements OnInit {
-
-  private highlighted: boolean = false;
-  private fragment: string;
+export class ArticlesComponent implements OnInit, AfterViewChecked {
 
   constructor(private router: Router, private route: ActivatedRoute, 
     private highlightService: HighlightService) {
   }
 
   ngOnInit() {
-    this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
   }
 
   ngAfterViewChecked() {
-    
-    if (!this.highlighted) {
-      this.highlightService.highlightAll();
-      this.highlighted = true;
-    }
-    try {
-      document.querySelector('#' + this.fragment).scrollIntoView();
-    } catch (e) { }
+    this.highlightService.highlightAll();
   }
 }
